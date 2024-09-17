@@ -6,11 +6,19 @@ const getAll = () => {
   return request.then(response => response.data, error => error.response.data)
 }
 
-
 const create = (title, author, url, userToken) => {
-    const request = axios.post(baseUrl, { title, author, url }, { headers: { "Authorization": "Bearer " + userToken } })
+  const request = axios.post(baseUrl, { title, author, url }, { headers: { "Authorization": "Bearer " + userToken } })
   return request.then(response => response.data, error => error.response.data)
 }
 
+const remove = (id, userToken) => {
+  const request = axios.delete(baseUrl + "/" + id, { headers: { "Authorization": "Bearer " + userToken }})
+  return request.then(response => response.data, (error) => error.response.data)
+}
 
-export default { getAll, create }
+const addLike = (id, likes, userToken) => {
+  const request = axios.put(baseUrl + "/" + id, { likes }, { headers: { "Authorization": "Bearer " + userToken } })
+  return request.then(response => response.data, (error) => error.response.data)
+}
+
+export default { getAll, create, addLike, remove }
