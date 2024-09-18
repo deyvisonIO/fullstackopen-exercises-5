@@ -1,4 +1,5 @@
 function BlogForm({submitBlog}) {
+
   return (
     <form onSubmit={submitBlog}>
       <h2>Create new</h2>
