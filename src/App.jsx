@@ -150,7 +150,7 @@ const App = () => {
       <Togglable buttonLabel="create">
         <BlogForm submitBlog={submitBlog}/>
       </Togglable>
-      <div style={{ display: "flex", flexDirection: "column", rowGap: "10px" }}>
+      <div className="blogs" style={{ display: "flex", flexDirection: "column", rowGap: "10px" }}>
         {blogs.length > 0 ? blogs.sort((a,b) => b.likes - a.likes).map(blog =>
           <Blog key={blog.id} blog={blog} likeBlog={likeBlog} handleBlogRemoval={handleBlogRemoval} username={user.username} />
         ): <p>No blogs to show</p>}
